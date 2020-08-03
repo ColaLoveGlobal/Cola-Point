@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.21 <0.7.0;
 
-import "./ConvertLib.sol";
-
 contract BTCraftmanToken {
 
     string public name = "JZC";
