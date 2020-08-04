@@ -15,7 +15,7 @@ contract BTCraftmanToken {
 
     bool public stopped = false;
 
-    address internal owner = 0x0;
+    address internal owner = address(0x0);
 
     modifier ownerOnly {
         require(owner == msg.sender);
@@ -28,7 +28,7 @@ contract BTCraftmanToken {
     }
 
     modifier validAddress {
-        require(msg.sender != 0x0);
+        require(msg.sender != address(0x0));
         _;
     }
 
@@ -39,7 +39,7 @@ contract BTCraftmanToken {
     }
 
     function transfer(address _to, uint256 _value) isRunning validAddress public returns (bool success) {
-        require(_to != 0x0);
+        require(_to != address(0x0));
         require(balanceOf[msg.sender] >= _value);
         require(balanceOf[_to] + _value >= balanceOf[_to]);
         balanceOf[msg.sender] -= _value;
@@ -49,7 +49,7 @@ contract BTCraftmanToken {
     }
 
     function transferFrom(address _from, address _to, uint256 _value) isRunning validAddress public returns (bool success) {
-        require(_to != 0x0);
+        require(_to != address(0x0));
         require(balanceOf[_from] >= _value);
         require(balanceOf[_to] + _value >= balanceOf[_to]);
         require(allowance[_from][msg.sender] >= _value);
