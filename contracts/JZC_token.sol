@@ -32,7 +32,7 @@ contract JZC_Token {
         _;
     }
 
-    function DrepToken() public {
+    function JZCToken() public {
         owner = msg.sender;
         totalSupply = initialSupply * 10 ** uint256(decimals);
         balanceOf[owner] = totalSupply;
