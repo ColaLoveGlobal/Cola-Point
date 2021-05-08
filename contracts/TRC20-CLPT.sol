@@ -104,11 +104,6 @@ pragma solidity ^0.4.24;
     function transfer(address to, uint256 value) public returns (bool);
     event Transfer(address indexed from, address indexed to, uint256 value);
   }
-    /**
-   * @title SafeERC20
-   * @dev 围绕ERC20操作发生故障的包装程序.
-   * 可以在合约中通过这样使用这个库 `using SafeERC20 for ERC20;` 来使用安全的操作`token.safeTransfer(...)`
-   */
 
   contract BasicToken is ERC20Basic, Ownable {
       using SafeMath for uint256;
@@ -382,7 +377,7 @@ pragma solidity ^0.4.24;
           return _lock_clpt_addr;
       }
 
-      // heco token -> RUFF
+      // heco token -> CLPT
       function depositTo(uint256 _value, string clptAddr) public returns (bool) {
           require(bytes(clptAddr).length <= 64);
           require(_lock_clpt_addr != address(0));
@@ -393,7 +388,7 @@ pragma solidity ^0.4.24;
           return true;
       }
 
-      // RUFF -> tron token
+      // CLPT -> tron token
       // txHash -> tx hash on ColaPointChain
       function withdrawTo(
           address _to,
